@@ -140,9 +140,9 @@ namespace FixMpeg
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(102, 42);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(31, 13);
+			this.label5.Size = new System.Drawing.Size(33, 13);
 			this.label5.TabIndex = 11;
-			this.label5.Text = "Kbps";
+			this.label5.Text = "Mbps";
 			// 
 			// numericUpDown1
 			// 
@@ -213,9 +213,9 @@ namespace FixMpeg
 			this.Controls.Add(this.label1);
 			this.Name = "Form1";
 			this.Text = "Form1";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
 			this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
-			this.Load += new System.EventHandler(this.Form1_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
