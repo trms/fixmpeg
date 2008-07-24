@@ -30,6 +30,7 @@ namespace FixMpeg
 		{
 			listBox1.Items.Add(message);
 			listBox1.SelectedIndex = listBox1.Items.Count - 1;
+			listBox1.Refresh();
 			Application.DoEvents();
 		}
 
@@ -210,7 +211,10 @@ namespace FixMpeg
 			}
 			if (Properties.Settings.Default.TempDirectory == null || Properties.Settings.Default.TempDirectory.Length == 0)
 			{
-				Properties.Settings.Default.TempDirectory = Environment.ExpandEnvironmentVariables("%TEMP%");
+				if (Utilities.IsRunningOnMono)
+					Properties.Settings.Default.TempDirectory = "/tmp";
+				else
+					Properties.Settings.Default.TempDirectory = Environment.ExpandEnvironmentVariables("%TEMP%");
 				Properties.Settings.Default.Save();
 			}
 			if (Properties.Settings.Default["BitRate"] == null || Properties.Settings.Default.BitRate == 0)

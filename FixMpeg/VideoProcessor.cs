@@ -195,7 +195,10 @@ Stream #0.1[0x80]: Audio: liba52, 48000 Hz, stereo, 384 kb/s
 		private string RunFFMPEG(string parameters)
 		{
 			Process p = new Process();
-			p.StartInfo.FileName = Path.Combine(ApplicationDirectory, "ffmpeg.exe");
+			if(Utilities.IsRunningOnMono)
+				p.StartInfo.FileName = Path.Combine(ApplicationDirectory, "ffmpeg");
+			else
+				p.StartInfo.FileName = Path.Combine(ApplicationDirectory, "ffmpeg.exe");
 			if (File.Exists(p.StartInfo.FileName) == false)
 				throw new IOException(String.Format("Please install ffmpeg.exe into {0}.  It can be downloaded from http://ffdshow.faireal.net/mirror/ffmpeg/", ApplicationDirectory));
 			p.StartInfo.Arguments = parameters;

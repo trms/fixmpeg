@@ -11,3 +11,13 @@ Simply extract the zip file, double click the FixMpeg.exe (not ffmpeg.exe) and t
 
 You can click the path to point it at your desired content directory (it will create a file there with the same name when processing). There's no installer, just place the extracted folder somewhere convenient, and perhaps make a shortcut to FixMpeg.exe someplace even more convenient.
 
+---
+
+FixMpeg will run on MacOSX!  Download mono
+(http://www.go-mono.com/mono-downloads/download.html) and install it.  Then,
+in in the FixMpeg directory there will be a FixMpeg.zip, double click
+it in the Finder to extract it.  Once that finishes, you'll see an
+AppleScript called "FixMpeg" (with an icon if a script standing on a square).
+Double click the script, it will configure and run FixMpeg for you.
+Status isn't perfect yet, but it works.
+

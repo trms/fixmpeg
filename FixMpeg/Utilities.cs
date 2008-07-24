@@ -124,5 +124,13 @@ namespace FixMpeg
 			string result = Regex.Replace(file, @"[^\w\d ;'\-_\+=\(\)!@#$%\^&,\.]", "");
 			return (result);
 		}
+
+		public static bool IsRunningOnMono
+		{
+			get
+			{
+				return Type.GetType("Mono.Runtime") != null;
+			}
+		}
 	}
 }
