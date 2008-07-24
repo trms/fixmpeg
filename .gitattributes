@@ -1,4 +1,4 @@
-*.csproj crlf
-*.cs crlf
-*.sln crlf
+*.csproj set crlf to input
+*.cs set crlf to input
+*.sln set crlf to input
 
