@@ -1,0 +1,4 @@
+*.csproj crlf
+*.cs crlf
+*.sln crlf
+
