@@ -5,94 +5,54 @@ title: FixMPEG
 <h1>{{ page.title }}</h1>
 
 <h2>About</h2>
-<p>This is a simple utility to test <a href="http://www.trms.com/signage">Carousel's</a> Remote Data Adaptor (RDA) functionality. RDA is a socket-based protocol that is used to control certain functionality within Carousel. For a full description of RDA, please see the Carousel <a href="http://www.trms.com/community/documentation">documentation</a>.</p>
-
-<p>Here is a list of commands that RDA currently supports:</p>
-<ul>
-  <li>CreatePage</li>
-  <li>UpdatePage</li>
-  <li>CreateAlertPage</li>
-  <li>CreateCrawl</li>
-  <li>ChangePageStatus</li>
-  <li>DeletePage</li>
-  <li>DeleteAllUserPages</li>
-  <li>DeactivateAllAlertPages</li>
-</ul>
+<p>
+FixMpeg is a simple front end to ffmpeg that will convert the audio format and sample rate in an mpeg2 file (.mpg). It is intended to aid the migration of files to the SX Video Servers from Tightrope Media Systems. It will not touch the video, but only convert the audio in a file if it is not correct to stereo MPEG1 layer 2 audio (typical uses are to convert from the wrong sample rate -- 44.1kHz to 48kHz or to convert AC3 audio).
+</p>
 
 <h2>Usage</h2>
 <p>
-  After launching the application, you'll see the RDA window:
-  <a href="images/CarouselRDA_TesterApp.png"><img alt="The RDA Screen" src="images/CarouselRDA_TesterApp.png" width="600" /></a>
+Simply extract the zip file, double click the FixMpeg.exe (not ffmpeg.exe) and then drag a batch of mpeg2 files onto the window. Files that are already correct will be copied, files that can be converted will be converted and you will get a message about any incompatible files.
 </p>
 <p>
-  There are four areas on this window:
-  <ul>
-    <li><strong>Connect</strong>: Enter the IP Address or name of your Carousel server, and the RDA port (by default, 56906). The <em>Connect</em> button will connect the application to your Carousel server. You will need to be connected to the server before any commands can be sent.</li>
-    <li><strong>Sample Commands</strong>: This is a list of sample XML commands that you can send to the server. Select a command, and click the <em>Send to command window</em> button to copy the command to the Send Commands area.</li>
-    <li><strong>Send Commands</strong>: This text box is where you can enter an XML command to send to the server. You can type your own command, or use a pre-built command from the <em>Sample Commands</em> area. The sample commands can be edited within this text box. The <em>Send Command</em> button will send the XML command to the server (assuming you are connected).</li>
-    <li><strong>Response List</strong>: Any responses from the server will be listed in this area. You should see both error and success messages.  The <em>Clear Responses</em> button will clear the list.</li>
-  </ul>
+You can click the path to point it at your desired content directory (it will create a file there with the same name when processing). There's no installer, just place the extracted folder somewhere convenient, and perhaps make a shortcut to FixMpeg.exe someplace even more convenient.
 </p>
-
-<h3>Procedure</h3>
-<ol>
-  <li>
-    <p>
-      Enter the IP address and RDA port for your Carousel server in the <em>Connect</em> area. Click the <em>Connect</em> button. You should see &quot;Connected&quot; in the <em>Response</em> area, and the <em>Connect</em> button should change to say "Disconnect."
-      <a href="images/connected.png"><img alt="A successful connection" src="images/connected.png" width="600" /></a>
-    </p>
-    <p>
-      If you see "A connection attempt failed," double check that you entered the correct server information. This message is telling you that the application cannot connect to your Carousel server. The server information you entered may be incorrect, or the server might not be licensed for RDA.
-    </p>
-  </li>
-  <li>
-    <p>
-      After you have connected, select a sample command to send to the server. Click on a command in the <em>Sample Commands</em> list, then click the <em>Send to command window</em> button. The command you selected will be copied to the command text area.
-      <a href="images/selecting_commands.png"><img alt="Selecting a command to send to the server" src="images/selecting_commands.png" width="600" /></a>
-    </p>
-  </li>
-  <li>
-    <p>
-      Make any edits to the command that you need.  A common change is to update the username and password to correspond to a user with access to execute this type of command on the selected Zone.
-      <a href="images/update_command.png"><img alt="Updating the RDA command" src="images/update_command.png" width="600" /></a>
-    </p>
-  </li>
-  <li>
-    <p>When the command is ready, click the <em>Send Command</em> button. The command will be sent to the server, and executed if valid.</p>
-  </li>
-  <li>
-    <p>
-      After sending the command, review the <em>Response List</em> for the result. You'll see a status of either "Error" or "Success" and a description.
-    </p>
-    <p>
-      Error results should have a description of what went wrong. Success results should have a description that contains what the server did, plus any additional information such as a page identifier (GUID) or any warnings that occurred.
-    </p>
-    <p>
-      In the image below, you can see three commands were executed. The first command failed because the username or password were incorrect, or the user didn't have access to execute the command on the specified zone.  The second command failed because the template specified didn't exist on the zone.  The third command succeeded in creating a new bulletin with GUID d55609(...), however the command specified some text for a block that didn't exist in the template.  The bulletin was still created, it just might not contain the text that you expected.
-      <a href="images/responses.png"><img alt="Command Responses, two failing, one successful" src="images/responses.png" width="600" /></a>
-    </p>
-  </li>
-</ol>
+<p>
+  After launching the application, you'll see the FixMPEG main window:
+  <a href="images/Screencap.png"><img alt="The FixMPEG Main Window" src="images/Screencap.png" width="618" /></a>
+</p>
 
 <h2>Downloads</h2>
 <p>All downloads include a copy of the source code.</p>
 <h3>Stable</h3>
 <ul>
-  <li>v0.1.1 <a href="http://github.com/trms/carousel_rda_tester/zipball/v0.1.1">zipfile</a></li>
+  <li>v2.2 <a href="http://trms-utilities.s3.amazonaws.com/FixMpeg/FixMpeg2.2.zip">zipfile</a></li>
 </ul>
+<!--
 <h3>Bleeding Edge</h3>
 <ul>
-  <li>edge <a href="http://github.com/trms/carousel_rda_tester/zipball/master">zipfile</a></li>
+  <li>edge <a href="http://github.com/trms/fixmpeg/zipball/master">zipfile</a></li>
 </ul>
+-->
 
 <h2>Source Code</h2>
-<p>Interested in helping improve this software? Create your own fork from our <a href="http://github.com/trms/carousel_rda_tester">GitHub</a> repository.</p>
-<a href="http://github.com/trms/carousel_rda_tester"><img class="forkme" src="http://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub" /></a>
+<p>Interested in helping improve this software? Create your own fork from our <a href="http://github.com/trms/fixmpeg">GitHub</a> repository.</p>
+<a href="http://github.com/trms/fixmpeg"><img class="forkme" src="http://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub" /></a>
+
+<h2>History</h2>
+<ul>
+<li>2.1 - this release now will process files other than MPEG files (i.e. .wmv, .avi) and will transcode unsupported media to MPEG2 to make them compatible! It will also read and allow you to convert media from a DVD. It does its best to transcode to MPEG2, some low-quality sources may have A/V sync issues, it is good to check the files for any problems after they're converted.
+</li>
+<li>2.2 - this release adds preliminary support for MacOSX with a few changes that allow it to run under mono.
+<p>
+To get it running on your Mac, first download mono and install it. Then, in in the FixMpeg directory there will be a FixMpeg.zip, double click it in the Finder to extract it. Once that finishes, you'll see an AppleScript called "FixMpeg" (with an icon if a script standing on a square). Double click the script, it will configure and run FixMpeg for you. Status isn't perfect yet, but it works.
+</p>
+</li>
+</ul>
 
 <h2>License</h2>
 <p>The MIT License</p>
 
-<p>Copyright (c) 2008 John Reilly, Tightrope Media Systems</p>
+<p>Copyright (c) 2008-2009 Scott Jann, Tightrope Media Systems</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
