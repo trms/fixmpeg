@@ -77,9 +77,9 @@ namespace FixMpeg
 
 				ShowMessage(String.Format("Transcoding {0}...", fi.Name));
 				vp.Progress += new VideoProcessor.ProgressCallback(ffmpeg_Progress);
-				vp.Transcode(videoOK ? VideoProcessor.OutputVideoFormat.copy : VideoProcessor.OutputVideoFormat.mpeg2,
+				vp.Transcode((videoOK && !uxForceTranscode.Checked) ? VideoProcessor.OutputVideoFormat.copy : VideoProcessor.OutputVideoFormat.mpeg2,
 					Convert.ToInt32(numericUpDown1.Value) * 1000,
-					audioOK ? VideoProcessor.OutputAudioFormat.copy : VideoProcessor.OutputAudioFormat.mp2,
+					(audioOK && !uxForceTranscode.Checked) ? VideoProcessor.OutputAudioFormat.copy : VideoProcessor.OutputAudioFormat.mp2,
 					outputPath);
 				ShowMessage(String.Format("Finished processing {0}.", fi.Name));
 			}
