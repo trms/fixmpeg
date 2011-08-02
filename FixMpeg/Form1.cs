@@ -68,7 +68,7 @@ namespace FixMpeg
 				if (vp.Height <= 486 && vp.Width <= 720 && vp.FrameRate == 29.97 && vp.VideoFormat == "mpeg2video")
 					videoOK = true;
 
-				if (audioOK && videoOK)
+				if (audioOK && videoOK && (uxForceTranscode.Checked == false))
 				{
 					ShowMessage(String.Format("{0} looks like a valid file, copying it to output directory...", fi.Name));
 					File.Copy(path, outputPath);
