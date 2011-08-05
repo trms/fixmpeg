@@ -170,7 +170,7 @@ Stream #0.1[0x80]: Audio: liba52, 48000 Hz, stereo, 384 kb/s
 			string vcodec = " -vcodec copy";
 			// need to support other codecs/options here
 			if(videoFormat != OutputVideoFormat.copy)
-				vcodec = " -vcodec mpeg2video -b " + bitrate + "k -r 29.97 -s 720x480 -aspect 4:3";
+				vcodec = "-vcodec mpeg2video -b " + bitrate + "k -flags ildct -r 29.97 -s 720x480 -aspect 4:3";
 			int outputChannels = 2;
 			if (AudioChannels == "mono")
 				outputChannels = 1;
